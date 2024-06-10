@@ -6,9 +6,6 @@ const app = new Hono();
 
 app.use('*', logger());
 
-app.get('/', (c) => c.text('Hono!'))
-
-
 app.get('/test', (c) => {
   return c.json({"message": "test"})
 });
