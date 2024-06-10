@@ -1,5 +1,6 @@
 import { Hono } from "hono";
-import { z } from 'zod'
+import { z } from 'zod';
+import { zValidator } from 'hono/zod-validator'
 
 type Expense = {
   id: number,
@@ -23,7 +24,8 @@ export const expensesRoute = new Hono()
     return c.json({ expenses: fakeExpenses });
   })
   .post('/', async (c) => {
-    const expense = await c.req.json();
+    const data = await c.req.json(); 
+    const expense = creatPostSchema.parse(data)
     console.log({expense})
     return c.json(expense);
   })
