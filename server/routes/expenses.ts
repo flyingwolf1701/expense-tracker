@@ -24,6 +24,7 @@ export const expensesRoute = new Hono()
   })
   .get('/total-spent', async (c) => {
     const total = fakeExpenses.reduce((acc, expense) => acc + expense.amount, 0);
+    console.log('total from total-spent on expenses.ts')
     return c.json({ total })
   })
   .post('/', zValidator("json", createPostSchema), async (c) => {
