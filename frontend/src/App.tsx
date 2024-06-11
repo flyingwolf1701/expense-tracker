@@ -49,7 +49,7 @@ function App() {
         </CardHeader>
         <CardContent>
           {isPending ? 'Loading...' : data.total}
-          {data.total}
+          {/* {data.total} */}
           {/* {totalSpent} */}
         </CardContent>
       </Card>
