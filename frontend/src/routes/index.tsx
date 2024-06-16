@@ -24,7 +24,10 @@ async function getTotalSpent() {
 }
 
 function Index() {
-  const { isPending, error, data } = useQuery({ queryKey: ['get-total-spent'], queryFn: getTotalSpent })
+  const { isPending, error, data } = useQuery({ 
+    queryKey: ['get-total-spent'], 
+    queryFn: getTotalSpent 
+  });
 
   if (isPending) return 'Loading...';
   if (error) return 'An error has occurred:' + error.message;
